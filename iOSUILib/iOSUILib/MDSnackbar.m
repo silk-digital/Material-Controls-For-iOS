@@ -121,7 +121,7 @@ MDSnackbarManger *snackbarManagerInstance;
                                                 action:@selector(slideDown:)];
   swipeGesture.direction = UISwipeGestureRecognizerDirectionDown;
     
-   _bottomPadding = 0.0;
+   _bottomPadding = -20;
   [self addGestureRecognizer:swipeGesture];
 }
 
@@ -232,19 +232,19 @@ MDSnackbarManger *snackbarManagerInstance;
   }
   hiddenConstraint =
       [NSLayoutConstraint constraintWithItem:self
-                                   attribute:NSLayoutAttributeTop
+                                   attribute:NSLayoutAttributeBottom
                                    relatedBy:NSLayoutRelationEqual
                                       toItem:rootView
-                                   attribute:NSLayoutAttributeBottom
+                                   attribute:NSLayoutAttributeTop
                                   multiplier:1.0
                                     constant:0.0];
 
   showingConstraint =
       [NSLayoutConstraint constraintWithItem:self
-                                   attribute:NSLayoutAttributeBottom
+                                   attribute:NSLayoutAttributeTop
                                    relatedBy:NSLayoutRelationEqual
                                       toItem:rootView
-                                   attribute:NSLayoutAttributeBottom
+                                   attribute:NSLayoutAttributeTop
                                   multiplier:1.0
                                     constant:-_bottomPadding];
 
