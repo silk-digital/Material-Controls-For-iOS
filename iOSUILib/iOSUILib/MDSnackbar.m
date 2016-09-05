@@ -89,6 +89,7 @@ MDSnackbarManger *snackbarManagerInstance;
   self.backgroundColor = [UIColorHelper colorWithRGBA:@"#323232"];
 
   textLabel = [[UILabel alloc] init];
+  textLabel.textAlignment = NSTextAlignmentCenter;
   textLabel.font = [UIFontHelper robotoFontOfSize:14];
   textLabel.alpha = 0;
 
@@ -119,7 +120,7 @@ MDSnackbarManger *snackbarManagerInstance;
   UISwipeGestureRecognizer *swipeGesture =
       [[UISwipeGestureRecognizer alloc] initWithTarget:self
                                                 action:@selector(slideDown:)];
-  swipeGesture.direction = UISwipeGestureRecognizerDirectionDown;
+  swipeGesture.direction = UISwipeGestureRecognizerDirectionUp;
     
    _bottomPadding = -20;
   [self addGestureRecognizer:swipeGesture];
