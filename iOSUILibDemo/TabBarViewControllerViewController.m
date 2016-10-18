@@ -59,7 +59,7 @@
 //}
 
 - (void)initContent {
-  tabBarViewController = [[MDTabBarViewController alloc] initWithDelegate:self];
+    tabBarViewController = [[MDTabBarViewController alloc] initWithDelegate:self:3];
   NSArray *names = @[
     @"TAB ONE",
     @"TWO",
@@ -100,8 +100,6 @@
                                              options:0
                                              metrics:nil
                                                views:viewsDictionary]];
-
-  //  tabBarViewController.selectedIndex = 3;
   self.title = @"MDTabBarViewController";
   
 }

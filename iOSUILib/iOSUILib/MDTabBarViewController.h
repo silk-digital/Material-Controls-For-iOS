@@ -43,7 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, weak) id<MDTabBarViewControllerDelegate> delegate;
 @property(nonatomic) NSUInteger selectedIndex;
 
-- (instancetype)initWithDelegate:(id<MDTabBarViewControllerDelegate>)delegate;
+- (instancetype)initWithDelegate:(id<MDTabBarViewControllerDelegate>)delegate:(int) index;
 - (void)setItems:(NSArray<id> *)items;
 
 @end

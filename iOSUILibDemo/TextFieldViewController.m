@@ -51,7 +51,7 @@
 }
 
 - (void)initContent {
-  tabBarViewController = [[MDTabBarViewController alloc] initWithDelegate:self];
+    tabBarViewController = [[MDTabBarViewController alloc] initWithDelegate:self:0];
   NSArray *names = @[
     @"NORMAL",
     @"FULL WIDTH",

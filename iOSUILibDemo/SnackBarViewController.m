@@ -50,7 +50,7 @@
           [NSString
               stringWithFormat:@"Connection time out. Test for long message.%i",
                                count++]
-       actionTitle:@"retry"];
+       actionTitle:@""];
   snackbar.actionTitleColor = [UIColorHelper colorWithRGBA:@"#4CAF50"];
   snackbar.multiline = (count % 2 == 0);
   [snackbar show];

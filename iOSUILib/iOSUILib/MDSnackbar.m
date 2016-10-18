@@ -27,7 +27,9 @@
 #import "MDDeviceHelper.h"
 
 #define kMDAnimationDuration .25f
+#define kMDTopNormalPadding 34
 #define kMDNormalPadding 14
+#define kMDTopLargePadding 44
 #define kMDLargePadding 24
 #define kMDCornerRadius 2
 #define kMDMinWidth 288
@@ -122,14 +124,14 @@ MDSnackbarManger *snackbarManagerInstance;
                                                 action:@selector(slideDown:)];
   swipeGesture.direction = UISwipeGestureRecognizerDirectionUp;
     
-   _bottomPadding = -20;
+   _bottomPadding = 0;
   [self addGestureRecognizer:swipeGesture];
 }
 
 - (void)arrangeContent {
   [self addSubview:textLabel];
 
-  if (_actionTitle) {
+  if (_actionTitle.length > 0) {
     [self addSubview:actionButton];
   }
 
@@ -137,27 +139,29 @@ MDSnackbarManger *snackbarManagerInstance;
     @"label" : textLabel,
     @"button" : actionButton
   };
-  NSDictionary *metrics = @{
+    NSDictionary *metrics = @{
+    @"topNormalPadding" : @kMDTopNormalPadding,
     @"normalPadding" : @kMDNormalPadding,
+    @"topLargePadding" : @kMDTopLargePadding,
     @"largePadding" : @kMDLargePadding
   };
   NSArray *labelConstraints;
   if (_multiline) {
     labelConstraints = [NSLayoutConstraint
-        constraintsWithVisualFormat:@"V:|-largePadding-[label]-largePadding-|"
+        constraintsWithVisualFormat:@"V:|-topLargePadding-[label]-largePadding-|"
                             options:0
                             metrics:metrics
                               views:viewsDictionary];
   } else {
     labelConstraints = [NSLayoutConstraint
-        constraintsWithVisualFormat:@"V:|-normalPadding-[label]-normalPadding-|"
+        constraintsWithVisualFormat:@"V:|-topNormalPadding-[label]-normalPadding-|"
                             options:0
                             metrics:metrics
                               views:viewsDictionary];
   }
   [self addConstraints:labelConstraints];
 
-  if (_actionTitle) {
+  if (_actionTitle.length > 0) {
     NSLayoutConstraint *c =
         [NSLayoutConstraint constraintWithItem:actionButton
                                      attribute:NSLayoutAttributeCenterY
