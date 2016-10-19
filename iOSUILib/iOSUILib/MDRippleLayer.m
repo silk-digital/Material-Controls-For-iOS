@@ -136,9 +136,8 @@
             [self performSelector:@selector(mdLayer:didFinishEffect:) withObject:self];
         }
     } else {
-     
+        [self clearEffects];
     }
-    [self clearEffects];
   }
 }
 
@@ -233,15 +232,17 @@
 }
 
 - (void)stopEffects {
-  _userIsHolding = false;
-  if (!_effectIsRunning) {
+    _userIsHolding = false;
     [self clearEffects];
+  /*if (!_effectIsRunning) {
+   
   } else {
     _rippleLayer.timeOffset =
         [_rippleLayer convertTime:CACurrentMediaTime() fromLayer:nil];
     _rippleLayer.beginTime = CACurrentMediaTime();
     _rippleLayer.speed = 4;
   }
+    [self clearEffects];*/
 }
 
 - (void)stopEffectsImmediately {

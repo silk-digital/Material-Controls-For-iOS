@@ -53,6 +53,8 @@ preparation before navigation
 */
 
 - (IBAction)touchUpInside:(id)sender {
+    ButtonViewController *viewController = [[ButtonViewController alloc] init];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 -(void)rotationStarted:(id)sender {
